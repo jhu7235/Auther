@@ -58,7 +58,6 @@ router.delete('/:id', function (req, res, next) {
 });
 
 router.post('/login', function (req, res, next) {
-  console.log('POST LOGIN REQ BODY', req.body);
   User.findOne({where: req.body})
   .then( user => {
     if (user) {
@@ -70,7 +69,11 @@ router.post('/login', function (req, res, next) {
     }
   })
   .catch(next);
+});
 
+router.post('/logout', function (req, res, next) {
+  console.log('DESTROY COOKIE');
+  req.session.destroy();
 });
 
 module.exports = router;

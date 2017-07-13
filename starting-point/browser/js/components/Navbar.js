@@ -82,7 +82,7 @@ const mapDispatch = dispatch => ({
   logout: () => {
     console.log('You signed out. Sorta.');
     history.push('/');
-    return dispatch( updateCurrentUser(''));
+    return dispatch( updateCurrentUser() );
   }
 });
 
